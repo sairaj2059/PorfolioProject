@@ -1,4 +1,3 @@
-import Navbar from "../navbar/Navbar";
 import "./academics.css";
 
 function Academics() {

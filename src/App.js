@@ -1,18 +1,22 @@
 import "./App.css";
-import Profile from "./components/Profile";
+import Profile from "./components/Profile/Profile";
 import Home from "./components/homePage/Home";
 import Academics from "./components/academicsPage/Academics";
-import Projects from "./components/projectsPage/Projects";
-import Navbar from "./components/navbar/Navbar";
+import Projects from "./components/Projects/Projects";
 
+import ContactUs from "./components/Contact Us/ContactUs";
+import Resume from "./components/Resume/Resume";
+import SocialProfiles from "./components/Social Profiles/SocialProfiles";
 function App() {
   return (
     <>
-      {/* <Navbar/> */}
       <Home />
-      {/* <Academics/>
+      <Academics />
+      <ContactUs />
+      <Profile />
+      <Resume />
+      <SocialProfiles />
       <Projects/>
-      <Profile /> */}
     </>
   );
 }

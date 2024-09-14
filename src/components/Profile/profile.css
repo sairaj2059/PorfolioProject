@@ -1,13 +1,13 @@
 /* App.css */
 @font-face {
     font-family: 'Morsey';
-    src: url('../fonts/Morsey\ Regular.ttf') format('ttf');
+    src: url('./fonts/Morsey\ Regular.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'trophy';
-    src: url('../fonts/Trophy.ttf') format('ttf');
+    src: url('./fonts/Trophy.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 }

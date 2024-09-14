@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { userProfileDefaultData } from '../Utils/Constants';
-import "../resources/css/profile.css"
+import { userProfileDefaultData } from '../../Utils/Constants';
+import "./profile.css"
 import { prettyDOM } from '@testing-library/react';
 import SvgIcon from "@mui/joy/SvgIcon";
 import { Button, styled } from "@mui/joy";
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
+
 
 export default function Profile() {
     const [profileData, setProfileData]= useState(userProfileDefaultData);
@@ -59,6 +60,7 @@ export default function Profile() {
       });
     
     return (
+
         <div className="ProfileContainer">
             <div className='ProfileData'>
                 <div className="ProfileHeader">
