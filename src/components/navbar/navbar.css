@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 100px;
+    background-color: #F78764;
+    height: 50px;
+    .nav-button{
+        /* width: 1;
+        background-color: brown; */
+    }
+}

@@ -112,24 +112,26 @@
 .FileInputDiv{
     position: relative;
     width: 100%;
+    cursor: pointer;
 }
 .FileInputDiv .profilePicInput{
     position: absolute;
     top: 25%;
     left: 5%;
-    opacity: 0;
     cursor: pointer;
+    opacity: 0;
+
 }
 .FileInputDiv .ProxyBtn{
     margin: 1%;
     padding: 1%;
     width: 30%;
-    cursor: pointer;
     font-family: trophy;
     border: none;
     background-color: rgb(143, 218, 198);
     color: white;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 
