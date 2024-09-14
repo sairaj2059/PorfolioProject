@@ -12,7 +12,7 @@ import {
 import MailIcon from "@mui/icons-material/Mail";
 import ErrorIcon from "@mui/icons-material/Error";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import CallIcon from '@mui/icons-material/Call';
 export const userProfileDefaultData = {
   Name: "Raj Guragain",
   UserName: "raj_guragain",
@@ -30,7 +30,7 @@ export const IconTileMap = {
   Projects: <CodeRounded className="icon" />,
   "Social Profiles": <DraftsRounded className="icon" />,
   Resume: <ContactPageRounded className="icon" />,
-  "Contact Us": <CallEndRounded className="icon" />,
+  "Contact Us": <CallIcon className="icon" />,
   "All Mail": <MailIcon className="icon" />,
   "Trash": <DeleteIcon className="icon" />,
   "Spam": <ErrorIcon className="icon" />,
