@@ -1,18 +1,16 @@
 import defaultImage from "../resources/images/defaultImage.jpg";
 import {
   CodeRounded,
-  CallEndRounded,
   DraftsRounded,
   HomeRounded,
   SchoolRounded,
-  ContactEmergencyRounded,
   ThumbUpAlt,
   ContactPageRounded,
 } from "@mui/icons-material";
 import MailIcon from "@mui/icons-material/Mail";
 import ErrorIcon from "@mui/icons-material/Error";
 import DeleteIcon from "@mui/icons-material/Delete";
-import CallIcon from '@mui/icons-material/Call';
+import CallIcon from "@mui/icons-material/Call";
 export const userProfileDefaultData = {
   Name: "Raj Guragain",
   UserName: "raj_guragain",
@@ -24,7 +22,7 @@ export const userProfileDefaultData = {
   Photo: defaultImage,
 };
 
-export const IconTileMap = {
+export const IconTitleMap = {
   Home: <HomeRounded className="icon" />,
   Academics: <SchoolRounded className="icon" />,
   Projects: <CodeRounded className="icon" />,
@@ -32,57 +30,43 @@ export const IconTileMap = {
   Resume: <ContactPageRounded className="icon" />,
   "Contact Us": <CallIcon className="icon" />,
   "All Mail": <MailIcon className="icon" />,
-  "Trash": <DeleteIcon className="icon" />,
-  "Spam": <ErrorIcon className="icon" />,
-  "Subscribers": <ThumbUpAlt className="icon"/>,
+  Trash: <DeleteIcon className="icon" />,
+  Spam: <ErrorIcon className="icon" />,
+  Subscribers: <ThumbUpAlt className="icon" />,
 };
 
 export const DEFAULT_SIDE_MENU = [
   {
     title: "Home",
-    icon: IconTileMap.Home,
+    icon: IconTitleMap.Home,
+    "link": "/home"
   },
   {
-    title: "Academics",
-    icon: IconTileMap.Academics,
+      "title": "Academics",
+      "icon": IconTitleMap.Academics,
+      "link": "/academics"
   },
   {
-    title: "Projects",
-    icon: IconTileMap.Projects,
+      "title": "Projects",
+      "icon": IconTitleMap.Projects,
+      "link": "/projects"
   },
   {
-    title: "Social Profiles",
-    icon: IconTileMap["Social Profiles"],
+      "title": "Social Profiles",
+      "icon": IconTitleMap["Social Profiles"],
+      "link": "/social-profile"
   },
   {
-    title: "Resume",
-    icon: IconTileMap.Resume,
-  },
-  {
-    title: "Contact Us",
-    icon: IconTileMap["Contact Us"],
-  },
-];
-
-export const SECOND_SIDE_MENU = [
-  {
-    title: "All Mail",
-    icon: IconTileMap["All Mail"],
-  },
-  {
-    title: "Spam",
-    icon: IconTileMap.Spam,
-  },
-  {
-    title: "Trash",
-    icon: IconTileMap.Trash,
-  },
-
-  {
-    title: "Subscribers",
-    icon: IconTileMap.Subscribers,
+      "title": "Resume",
+      "icon": IconTitleMap.Resume,
+      "link": "/resume"
   }
 ];
 
+
+
 export const DEFAULT_DRAWER_FLAG = true;
 export const DEFAULT_ACTIVE_PAGE = DEFAULT_SIDE_MENU[0].title;
+
+export const DarkTheme              = "dark"
+export const LightTheme             = "light"

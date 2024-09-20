@@ -1,4 +1,3 @@
-import "./academics.css";
 
 function Academics() {
   return (

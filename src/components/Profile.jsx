@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import { userProfileDefaultData } from '../../Utils/Constants';
-import "./profile.css"
-import { prettyDOM } from '@testing-library/react';
+import { userProfileDefaultData } from '../Utils/Constants';
 import SvgIcon from "@mui/joy/SvgIcon";
 import { Button, styled } from "@mui/joy";
-import AccessibilityIcon from '@mui/icons-material/Accessibility';
-
 
 export default function Profile() {
     const [profileData, setProfileData]= useState(userProfileDefaultData);
