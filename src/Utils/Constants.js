@@ -1,4 +1,4 @@
-import defaultImage from "../resources/images/defaultImage.jpg";
+import defaultImage from "../resources/images/dp_image.png";
 import {
   CodeRounded,
   DraftsRounded,
@@ -6,6 +6,9 @@ import {
   SchoolRounded,
   ThumbUpAlt,
   ContactPageRounded,
+  GitHub,
+  Facebook,
+  LinkedIn,
 } from "@mui/icons-material";
 import MailIcon from "@mui/icons-material/Mail";
 import ErrorIcon from "@mui/icons-material/Error";
@@ -33,34 +36,52 @@ export const IconTitleMap = {
   Trash: <DeleteIcon className="icon" />,
   Spam: <ErrorIcon className="icon" />,
   Subscribers: <ThumbUpAlt className="icon" />,
+  GitHub: <GitHub className="icon" />,
+  Facebook: <Facebook className="icon" />,
+  LinkedIn: <LinkedIn className="icon" />,
 };
 
 export const DEFAULT_SIDE_MENU = [
   {
     title: "Home",
     icon: IconTitleMap.Home,
-    "link": "/home"
+    link: "/home",
   },
   {
-      "title": "Academics",
-      "icon": IconTitleMap.Academics,
-      "link": "/academics"
+    title: "Academics",
+    icon: IconTitleMap.Academics,
+    link: "/academics",
   },
   {
-      "title": "Projects",
-      "icon": IconTitleMap.Projects,
-      "link": "/projects"
+    title: "Projects",
+    icon: IconTitleMap.Projects,
+    link: "/projects",
   },
   {
-      "title": "Social Profiles",
-      "icon": IconTitleMap["Social Profiles"],
-      "link": "/social-profile"
+    title: "Social Profiles",
+    icon: IconTitleMap["Social Profiles"],
+    link: "/social-profile",
   },
   {
-      "title": "Resume",
-      "icon": IconTitleMap.Resume,
-      "link": "/resume"
-  }
+    title: "Resume",
+    icon: IconTitleMap.Resume,
+    link: "/resume",
+  },
+];
+
+export const SOCIAL_MEDIA_ICONS = [
+  {
+    icon: IconTitleMap.GitHub,
+    link: "/",
+  },
+  {
+    icon: IconTitleMap.LinkedIn,
+    link: "/",
+  },
+  {
+    icon: IconTitleMap.Facebook,
+    link: "/",
+  },
 ];
 
 
@@ -68,5 +89,5 @@ export const DEFAULT_SIDE_MENU = [
 export const DEFAULT_DRAWER_FLAG = true;
 export const DEFAULT_ACTIVE_PAGE = DEFAULT_SIDE_MENU[0].title;
 
-export const DarkTheme              = "dark"
-export const LightTheme             = "light"
+export const DarkTheme = "dark";
+export const LightTheme = "light";

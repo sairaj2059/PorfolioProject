@@ -1,31 +1,89 @@
 import React from "react";
 import "../resources/css/home.css";
-import { Avatar, Typography } from "@mui/material";
-import { userProfileDefaultData } from "../Utils/Constants";
-import dpImage from "../resources/images/dpImage.jpeg";
+import { Avatar, Button, Typography } from "@mui/material";
+import { SOCIAL_MEDIA_ICONS, userProfileDefaultData } from "../Utils/Constants";
+import Typewriter from "typewriter-effect";
+
 function Home() {
   const userName = userProfileDefaultData.Name;
+  const dpImage = userProfileDefaultData.Photo;
   return (
     <div className="mainContainer">
+      <div className="details">
+        <Typography
+          variant="h3"
+          sx={{
+            fontFamily: "Source Code Pro",
+            WebkitTextStroke: "0.25px black",
+            color:'#544600'
+          }}
+        >
+          HEY👋
+          <Typography
+            variant="h1"
+            sx={{
+              color: "#a79248",
+              fontFamily: "Source Code Pro",
+              fontSize: "4.5rem",
+              fontWeight: "400",
+              flex: "1 1 45%",
+
+              // WebkitTextStroke:'0.25px white'
+            }}
+          >
+            I'M {userName.toUpperCase()}
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: "Source Code Pro",
+              WebkitTextStroke: "0.25px black",
+              fontSize: "4.25rem",
+              fontWeight: "400",
+              display: "flex",
+            }}
+          >
+            I'M A&nbsp;
+            <Typewriter
+              options={{
+                strings: "STUDENT",
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </Typography>
+        </Typography>
+        <div className="icons">
+          <Button
+            variant="contained"
+            sx={{ borderRadius: "50px", backgroundColor: "#a79248" }}
+          >
+            Get in touch{"->"}
+          </Button>
+          {SOCIAL_MEDIA_ICONS.map((data, index) => (
+            <Avatar
+              sx={{
+                color: "black",
+                backgroundColor: "white",
+                cursor: "pointer",
+              }}
+            >
+              {data.icon}
+            </Avatar>
+          ))}
+        </div>
+      </div>
       <Avatar
         src={dpImage}
-        sx={{ width: "100px", height: "100px", display: "flex", mt: "50px", mb:'30px' }}
+        sx={{
+          width: "400px",
+          height: "500px",
+          border: "5px solid #a79248",
+          borderRadius: "20%",
+          mr: "7vw",
+        }}
+        variant="square"
       />
-      <Typography variant="h5" >I'm</Typography>
-      <Typography variant="h1" sx={{ color: "#465776"}}>
-        {userName},
-      </Typography>
-      <Typography variant="h5" sx={{textAlign:'center', m:'50px', mt:'px'}}>
-        A driven Computer Science student with a passion for exploring the
-        cutting edge of Data Science and Machine Learning. I thrive on turning
-        data into insights and innovation. Beyond the code, I'm a spiritual
-        explorer, constantly seeking balance and deeper understanding in life.
-        My love for travel and cultural immersion fuels my curiosity about the
-        world, inspiring me to embrace diversity and learn from every corner of
-        the globe.
-      </Typography>
-
-      {/* </Avatar> */}
     </div>
   );
 }

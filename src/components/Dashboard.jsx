@@ -16,15 +16,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import userImage from "../resources/images/dpImage.jpeg";
 import "../resources/css/dashboard.css";
 // import userName from
 import {
-  DEFAULT_ACTIVE_PAGE,
-  DEFAULT_DRAWER_FLAG,
   DEFAULT_SIDE_MENU,
   IconTitleMap,
-  SECOND_SIDE_MENU,
   userProfileDefaultData,
 } from "../Utils/Constants";
 import {
@@ -37,10 +33,8 @@ import {
 } from "@mui/material";
 import { Link, Route, Routes } from "react-router-dom";
 import Academics from "./Academics";
-import ContactUs from "./ContactUs";
 import Projects from "./Projects";
 import Resume from "./Resume";
-import SocialProfiles from "./SocialProfiles";
 import BreadCrumbComponent from "./BreadCrumbComponent";
 import { setDrawerOpen, setSnackbarOpen } from "../redux/slices/systemSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,8 +52,12 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: "hidden",
+  border: "none",
+  margin: "1%",
+  backgroundColor:'transparent',
+  borderRadius: "21px 21px 21px 21px",
+  height: `calc(100vh - 5%)`,
 });
-
 const closedMixin = (theme) => ({
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
@@ -70,6 +68,15 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up("sm")]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
+  border: "none",
+  margin: "1%",
+  background:'transparent',
+  borderRadius: "21px 21px 21px 21px",
+  height: `calc(100vh - 5%)`,
+  "&:hover": {
+    transition: "0.3s all ease-in-out",
+  },
+  // background: '#F0F0F0',
 });
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -81,6 +88,28 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
+// const AppBar = styled(MuiAppBar, {
+//   shouldForwardProp: (prop) => prop !== "open",
+// })(({ theme, open }) => ({
+//   zIndex: theme.zIndex.drawer + 1,
+//   display: "flex",
+//   flexDirection: "row",
+//   justifyContent: "space-between",
+//   alignItems: "center",
+//   transition: theme.transitions.create(["width", "margin"], {
+//     easing: theme.transitions.easing.sharp,
+//     duration: theme.transitions.duration.leavingScreen,
+//   }),
+//   ...(open && {
+//     marginLeft: drawerWidth,
+//     width: `calc(100% - ${drawerWidth}px)`,
+//     transition: theme.transitions.create(["width", "margin"], {
+//       easing: theme.transitions.easing.sharp,
+//       duration: theme.transitions.duration.enteringScreen,
+//     }),
+//   }),
+// }));
+
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -89,13 +118,18 @@ const AppBar = styled(MuiAppBar, {
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
+  paddingTop: "1%",
+  paddingLeft: "1%",
+  boxShadow: "none",
+  // border: '2px solid red',
+  background:'transparent',
   transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
     marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: `calc(100% - ${drawerWidth}px - 1%)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -110,6 +144,7 @@ const Drawer = styled(MuiDrawer, {
   flexShrink: 0,
   whiteSpace: "nowrap",
   boxSizing: "border-box",
+
   ...(open && {
     ...openedMixin(theme),
     "& .MuiDrawer-paper": openedMixin(theme),
@@ -122,6 +157,7 @@ const Drawer = styled(MuiDrawer, {
 
 export default function Dashboard() {
   const theme = useTheme();
+  const userImage = userProfileDefaultData.Photo;
   // const [drawerOpen, setDrawerOpen] = React.useState(DEFAULT_DRAWER_FLAG);
   // const [ActivePage, setActivePage] = React.useState(DEFAULT_ACTIVE_PAGE);
   const [dataStatus, setDataStatus] = React.useState(false);
@@ -192,7 +228,7 @@ export default function Dashboard() {
   return (
     <Box sx={{ display: "flex" }} className="MainContainer">
       <CssBaseline />
-      <AppBar position="fixed" open={drawerOpen} className="AppBar">
+      <AppBar  open={drawerOpen} className="AppBar">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -201,7 +237,8 @@ export default function Dashboard() {
             edge="start"
             sx={{
               marginRight: 5,
-              ...(drawerOpen && { display: "none" }),
+              color:'#544600',
+              ...(drawerOpen && { display: "none" })
             }}
           >
             <MenuIcon />
@@ -210,7 +247,7 @@ export default function Dashboard() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: "flex", alignItems: "center", gap: "10px" }}
+            sx={{ display: "flex", alignItems: "center", gap: "10px", color:'#544600' }}
           >
             {IconTitleMap[ActivePage]} {ActivePage}
           </Typography>
@@ -219,7 +256,7 @@ export default function Dashboard() {
           <Avatar
             alt={userName}
             src={userImage}
-            sx={{ mr: 2, border: "3px solid white", cursor: "pointer" }}
+            sx={{ mr: 7, border: "3px solid #544600", cursor: "pointer" }}
             onClick={handleClick}
           />
           <Menu
@@ -245,15 +282,15 @@ export default function Dashboard() {
         </Box>
       </AppBar>
 
-      <Drawer variant="permanent" open={drawerOpen} className="Drawer">
-        <DrawerHeader>
+      <Drawer variant="permanent" open={drawerOpen}>
+        <DrawerHeader className={`${drawerOpen ? "show sideFloatClass" : "hide"}`}>
           <Avatar
             alt="User Image"
             src={userImage}
-            sx={{ border: "3px solid white" }}
+            sx={{ border: "3px solid #544600" }}
           />
           <h1
-            style={{ marginRight: "auto", marginLeft: "2%", fontSize: "20px" }}
+            style={{ marginRight: "auto", marginLeft: "4%", fontSize: "20px", color:'#544600' }}
           >
             {userName}
           </h1>
@@ -301,7 +338,7 @@ export default function Dashboard() {
                           minWidth: 0,
                           mr: drawerOpen ? 3 : "auto",
                           justifyContent: "center",
-                          color: index === activeSideMenu ? "white" : "gray",
+                          color: index === activeSideMenu ? "white" : "#544600",
                         }}
                       >
                         {data.icon}
@@ -321,7 +358,10 @@ export default function Dashboard() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <BreadCrumbComponent data={["Portfolio", ActivePage]} />
+        
+        {dataStatus ? (
+          <div className="MainComponent">
+            <BreadCrumbComponent data={["Portfolio", ActivePage]} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -331,12 +371,9 @@ export default function Dashboard() {
           <Route path="/academics" element={<Academics />} />
           <Route path="*" element={<h1>Jai sairam! Page not found</h1>} />
         </Routes>
-        {dataStatus ? (
-          <div>
-            
           </div>
         ) : (
-          <div style={{ padding: "1%" }}>
+          <div className="SkeletonComponent"style={{ padding: "1%" }}>
             <Skeleton
               sx={{ mb: 1, width: "98%" }}
               variant="rectangular"
