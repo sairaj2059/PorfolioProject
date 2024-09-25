@@ -7,7 +7,6 @@ import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -36,12 +35,12 @@ import Academics from "./Academics";
 import Projects from "./Projects";
 import Resume from "./Resume";
 import BreadCrumbComponent from "./BreadCrumbComponent";
+import SocialProfiles from "./SocialProfiles";
 import { setDrawerOpen, setSnackbarOpen } from "../redux/slices/systemSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setActivePage, setActiveSideMenu } from "../redux/slices/navSlice";
 import { CloseRounded } from "@mui/icons-material";
 import Home from "./Home";
-import Profile from "./Profile";
 
 const drawerWidth = 240;
 
@@ -54,7 +53,7 @@ const openedMixin = (theme) => ({
   overflowX: "hidden",
   border: "none",
   margin: "1%",
-  backgroundColor:'transparent',
+  backgroundColor: "transparent",
   borderRadius: "21px 21px 21px 21px",
   height: `calc(100vh - 5%)`,
 });
@@ -70,7 +69,7 @@ const closedMixin = (theme) => ({
   },
   border: "none",
   margin: "1%",
-  background:'transparent',
+  background: "transparent",
   borderRadius: "21px 21px 21px 21px",
   height: `calc(100vh - 5%)`,
   "&:hover": {
@@ -122,7 +121,7 @@ const AppBar = styled(MuiAppBar, {
   paddingLeft: "1%",
   boxShadow: "none",
   // border: '2px solid red',
-  background:'transparent',
+  background: "transparent",
   transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -228,7 +227,7 @@ export default function Dashboard() {
   return (
     <Box sx={{ display: "flex" }} className="MainContainer">
       <CssBaseline />
-      <AppBar  open={drawerOpen} className="AppBar">
+      <AppBar open={drawerOpen} className="AppBar">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -237,8 +236,8 @@ export default function Dashboard() {
             edge="start"
             sx={{
               marginRight: 5,
-              color:'#544600',
-              ...(drawerOpen && { display: "none" })
+              color: "#544600",
+              ...(drawerOpen && { display: "none" }),
             }}
           >
             <MenuIcon />
@@ -247,7 +246,12 @@ export default function Dashboard() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: "flex", alignItems: "center", gap: "10px", color:'#544600' }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              color: "#544600",
+            }}
           >
             {IconTitleMap[ActivePage]} {ActivePage}
           </Typography>
@@ -283,14 +287,21 @@ export default function Dashboard() {
       </AppBar>
 
       <Drawer variant="permanent" open={drawerOpen}>
-        <DrawerHeader className={`${drawerOpen ? "show sideFloatClass" : "hide"}`}>
+        <DrawerHeader
+          className={`${drawerOpen ? "show sideFloatClass" : "hide"}`}
+        >
           <Avatar
             alt="User Image"
             src={userImage}
             sx={{ border: "3px solid #544600" }}
           />
           <h1
-            style={{ marginRight: "auto", marginLeft: "4%", fontSize: "20px", color:'#544600' }}
+            style={{
+              marginRight: "auto",
+              marginLeft: "4%",
+              fontSize: "20px",
+              color: "#544600",
+            }}
           >
             {userName}
           </h1>
@@ -302,8 +313,6 @@ export default function Dashboard() {
             )}
           </IconButton>
         </DrawerHeader>
-
-        <Divider />
         <List className="sideMenuContainer" sx={{ background: "transparent" }}>
           {DEFAULT_SIDE_MENU.map((data, index) => (
             <div
@@ -358,22 +367,22 @@ export default function Dashboard() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        
+
         {dataStatus ? (
           <div className="MainComponent">
             <BreadCrumbComponent data={["Portfolio", ActivePage]} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/social-profile" element={<Profile />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/academics" element={<Academics />} />
-          <Route path="*" element={<h1>Jai sairam! Page not found</h1>} />
-        </Routes>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/social-profile" element={<SocialProfiles />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/academics" element={<Academics />} />
+              <Route path="*" element={<h1>Jai sairam! Page not found</h1>} />
+            </Routes>
           </div>
         ) : (
-          <div className="SkeletonComponent"style={{ padding: "1%" }}>
+          <div className="SkeletonComponent" style={{ padding: "1%" }}>
             <Skeleton
               sx={{ mb: 1, width: "98%" }}
               variant="rectangular"

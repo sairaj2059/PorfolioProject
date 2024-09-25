@@ -3,6 +3,7 @@ import "../resources/css/home.css";
 import { Avatar, Button, Typography } from "@mui/material";
 import { SOCIAL_MEDIA_ICONS, userProfileDefaultData } from "../Utils/Constants";
 import Typewriter from "typewriter-effect";
+import { Link } from "react-router-dom";
 
 function Home() {
   const userName = userProfileDefaultData.Name;
@@ -27,8 +28,6 @@ function Home() {
               fontSize: "4.5rem",
               fontWeight: "400",
               flex: "1 1 45%",
-
-              // WebkitTextStroke:'0.25px white'
             }}
           >
             I'M {userName.toUpperCase()}
@@ -56,11 +55,12 @@ function Home() {
         <div className="icons">
           <Button
             variant="contained"
-            sx={{ borderRadius: "50px", backgroundColor: "#a79248" }}
+            sx={{ borderRadius: "50px", backgroundColor: "#a79248", ":hover":{backgroundColor: "#85732a"} }}
           >
             Get in touch{"->"}
           </Button>
           {SOCIAL_MEDIA_ICONS.map((data, index) => (
+            <Link to={data.link} key={index}>
             <Avatar
               sx={{
                 color: "black",
@@ -69,7 +69,7 @@ function Home() {
               }}
             >
               {data.icon}
-            </Avatar>
+            </Avatar></Link>
           ))}
         </div>
       </div>

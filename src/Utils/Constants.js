@@ -72,11 +72,11 @@ export const DEFAULT_SIDE_MENU = [
 export const SOCIAL_MEDIA_ICONS = [
   {
     icon: IconTitleMap.GitHub,
-    link: "/",
+    link: "https://github.com/sairaj2059",
   },
   {
     icon: IconTitleMap.LinkedIn,
-    link: "/",
+    link: "https://www.linkedin.com/in/sairaj1926/",
   },
   {
     icon: IconTitleMap.Facebook,

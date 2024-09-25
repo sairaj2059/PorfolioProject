@@ -1,0 +1,9 @@
+.container{
+    transition: transform 0.3s ease;
+
+    &:hover{
+        transform: scale(0.9);
+        z-index: 1;
+    }
+
+}
